@@ -90,15 +90,15 @@
     /* PRICING */
     #pricing{padding:4.5rem 2.5rem;background:var(--off-white);}
     .pricing-note{font-size:15px;color:var(--gray);max-width:560px;margin-bottom:2.5rem;line-height:1.7;}
-    .pricing-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.25rem;}
+    .pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;}
     .price-card{background:var(--white);border:1px solid var(--border);border-radius:8px;padding:1.5rem;text-align:center;transition:all .2s;position:relative;}
     .price-card:hover{border-color:var(--red);}
     .price-card.featured{border:2px solid var(--red);}
     .price-badge{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--red);color:var(--white);font-size:11px;font-weight:600;letter-spacing:1px;text-transform:uppercase;padding:3px 12px;border-radius:20px;white-space:nowrap;}
     .price-cards{font-size:13px;color:var(--gray);margin-bottom:.5rem;letter-spacing:.5px;text-transform:uppercase;}
-    .price-num{font-family:'Playfair Display',serif;font-size:36px;color:var(--red);font-weight:700;}
-    .price-num span{font-size:16px;font-weight:500;color:var(--gray);font-family:'DM Sans',sans-serif;}
-    .price-desc{font-size:13px;color:var(--gray);margin-top:.5rem;line-height:1.5;}
+    .price-num{font-family:'Playfair Display',serif;font-size:52px;color:var(--red);font-weight:700;line-height:1;}
+    .price-num sup{font-size:22px;font-weight:600;vertical-align:super;line-height:0;}
+    .price-per{font-size:12px;color:var(--gray);margin-top:.5rem;letter-spacing:.5px;text-transform:uppercase;}
 
     /* ORDER */
     #order{padding:4.5rem 2.5rem;background:var(--red);}
@@ -281,28 +281,23 @@
 <section id="pricing">
   <p class="section-label">Pricing</p>
   <h2 class="section-title">Simple, Upfront Pricing</h2>
-  <p class="pricing-note">All pricing is paid upfront. Payment plans may be available — contact us to discuss. Prices reflect cards, envelopes, branded packaging, and annual mailing service.</p>
+  <p class="pricing-note">All pricing is paid upfront. Payment plans may be available — contact us to discuss.</p>
   <div class="pricing-grid">
     <div class="price-card">
-      <p class="price-cards">1 Card / Year</p>
-      <p class="price-num">$41<span>.42</span></p>
-      <p class="price-desc">Perfect for one special occasion each year.</p>
-    </div>
-    <div class="price-card">
-      <p class="price-cards">2 Cards / Year</p>
-      <p class="price-num">$42<span>.45</span></p>
-      <p class="price-desc">Cover two occasions — birthday and anniversary.</p>
+      <p class="price-cards">5 Cards / Year</p>
+      <p class="price-num"><sup>$</sup>79</p>
+      <p class="price-per">$15.80 per card</p>
     </div>
     <div class="price-card featured">
       <div class="price-badge">Most Popular</div>
-      <p class="price-cards">5 Cards / Year</p>
-      <p class="price-num">$45<span>.54</span></p>
-      <p class="price-desc">A full year of occasions covered for family and friends.</p>
+      <p class="price-cards">10 Cards / Year</p>
+      <p class="price-num"><sup>$</sup>129</p>
+      <p class="price-per">$12.90 per card</p>
     </div>
     <div class="price-card">
-      <p class="price-cards">10 Cards / Year</p>
-      <p class="price-num">$50<span>.69</span></p>
-      <p class="price-desc">Maximum coverage for those who never want to miss a thing.</p>
+      <p class="price-cards">15 Cards / Year</p>
+      <p class="price-num"><sup>$</sup>169</p>
+      <p class="price-per">$11.27 per card</p>
     </div>
   </div>
 </section>
@@ -327,17 +322,10 @@
         <div class="form-step-item"><div class="n">3</div><span>Fill out your cards, label them in order, and mail them back to us.</span></div>
         <div class="form-step-item"><div class="n">4</div><span>We store and send each card on the right date, every year — automatically.</span></div>
       </div>
-
-      <!-- ============================================================
-           REPLACE THE BLOCK BELOW WITH YOUR GOOGLE FORM EMBED CODE
-           In Google Forms: Send > Embed > copy the <iframe> tag
-           ============================================================ -->
       <div class="form-placeholder">
         <i class="ti ti-brand-google"></i>
-      <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdftCLDASnuePzb-YUyEWHJi-qVpe0iOZOWZ4FqplTs2mgf9g/viewform?usp=preview" width="100%" height="600" frameborder="0"></iframe>      </div>
-      <!-- ============================================================ -->
-
-      <!-- UPDATE THIS HREF WITH YOUR GOOGLE FORM LINK -->
+        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdftCLDASnuePzb-YUyEWHJi-qVpe0iOZOWZ4FqplTs2mgf9g/viewform?usp=preview" width="100%" height="600" frameborder="0"></iframe>
+      </div>
       <a href="https://docs.google.com/forms/d/e/1FAIpQLSdftCLDASnuePzb-YUyEWHJi-qVpe0iOZOWZ4FqplTs2mgf9g/viewform?usp=preview" target="_blank" class="form-link-btn">
         <i class="ti ti-external-link"></i>
         Open Order Form
@@ -409,7 +397,6 @@
   <div class="contact-grid">
     <div class="contact-info">
       <p>Have a question about the process, pricing, or a specific situation? We'd love to hear from you. FEN is a personal, hands-on service.</p>
-      <!-- UPDATE WITH YOUR REAL CONTACT INFO -->
       <div class="contact-detail"><i class="ti ti-mail"></i><span>youremail@forgetemnotcards.com</span></div>
       <div class="contact-detail"><i class="ti ti-phone"></i><span>(262) 220-8154</span></div>
       <div class="contact-detail"><i class="ti ti-brand-instagram"></i><span>@ForgetEmNotCards</span></div>
