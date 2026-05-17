@@ -413,15 +413,24 @@
       <div class="contact-detail"><i class="ti ti-phone"></i><span>(262) 220-8154</span></div>
       <div class="contact-detail"><i class="ti ti-brand-instagram"></i><span>@ForgetEmNotCards</span></div>
     </div>
-    <div class="contact-form">
+    <form action="https://formspree.io/f/xwvzedlo" method="POST" class="contact-form">
       <div class="form-row">
-        <div class="form-field"><label>First Name</label><input type="text" placeholder="Jane"></div>
-        <div class="form-field"><label>Last Name</label><input type="text" placeholder="Smith"></div>
+        <div class="form-field">
+          <label>First Name</label>
+          <input type="text" name="first_name" placeholder="Jane" required>
+        </div>
+        <div class="form-field">
+          <label>Last Name</label>
+          <input type="text" name="last_name" placeholder="Smith" required>
+        </div>
       </div>
-      <div class="form-field"><label>Email</label><input type="email" placeholder="jane@example.com"></div>
+      <div class="form-field">
+        <label>Email</label>
+        <input type="email" name="email" placeholder="jane@example.com" required>
+      </div>
       <div class="form-field">
         <label>Topic</label>
-        <select>
+        <select name="topic">
           <option>General Question</option>
           <option>Order Help</option>
           <option>Pricing / Payment Plan</option>
@@ -430,9 +439,12 @@
           <option>Something Else</option>
         </select>
       </div>
-      <div class="form-field"><label>Message</label><textarea placeholder="How can we help?"></textarea></div>
-      <button class="btn-red">Send Message</button>
-    </div>
+      <div class="form-field">
+        <label>Message</label>
+        <textarea name="message" placeholder="How can we help?" required></textarea>
+      </div>
+      <button type="submit" class="btn-red">Send Message</button>
+    </form>
   </div>
 </section>
 
