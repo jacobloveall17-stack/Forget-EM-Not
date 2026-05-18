@@ -73,10 +73,10 @@
     .mission-block{background:var(--red);color:var(--white);border-radius:8px;padding:1.75rem 2rem;margin-top:1.5rem;}
     .mission-block .label{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--white);opacity:.75;margin-bottom:.5rem;}
     .mission-block p{font-family:'Playfair Display',serif;font-size:19px;line-height:1.55;font-style:italic;color:var(--white);}
-    .about-features{display:flex;flex-direction:column;gap:1rem;}
-    .feature-card{background:var(--white);border:1px solid var(--border);border-radius:6px;padding:1.25rem 1.5rem;border-left:4px solid var(--red);}
-    .feature-card h4{font-size:15px;font-weight:600;margin-bottom:.35rem;}
-    .feature-card p{font-size:14px;color:var(--gray);line-height:1.65;}
+    .about-features{display:flex;flex-direction:column;gap:1.25rem;}
+    .feature-card{background:var(--white);border:1px solid var(--border);border-radius:6px;padding:1.5rem 1.75rem;border-left:4px solid var(--red);}
+    .feature-card h4{font-size:15px;font-weight:600;margin-bottom:.5rem;}
+    .feature-card p{font-size:14px;color:var(--gray);line-height:1.7;}
 
     /* HOW IT WORKS */
     #how{padding:4.5rem 2.5rem;background:var(--white);}
@@ -295,20 +295,16 @@
     </div>
     <div class="about-features">
       <div class="feature-card">
-        <h4>A One-of-a-Kind Service</h4>
-        <p>No one else does this. We offer a unique service that understands nothing can replace the sentimental weight of a physical, handwritten card arriving in the mail.</p>
-      </div>
-      <div class="feature-card">
         <h4>Built for Every Stage of Life</h4>
-        <p>Ideal for grandparents and older adults, but truly ageless. Doing long distance? Traveling abroad for years? Forget 'Em Not keeps the cards going no matter what.</p>
+        <p>Truly ageless and built for anyone. Whether you're a grandparent wanting to stay connected, doing long distance, or traveling abroad for years — Forget 'Em Not keeps the cards going no matter what life brings.</p>
       </div>
       <div class="feature-card">
         <h4>Priceless Sentimental Value</h4>
-        <p>If a customer passes away, the cards continue to be sent — making each card a lasting message of love from someone who is no longer here.</p>
+        <p>If a customer passes away, the cards continue to be sent — making each card a lasting message of love from someone who is no longer here. The value of that kind of connection is truly beyond measure.</p>
       </div>
       <div class="feature-card">
         <h4>Growing With You</h4>
-        <p>We start with cards, but the future includes gifts and other add-ons. Once you're a customer, you're part of something that will grow.</p>
+        <p>We start with cards, but the future includes gifts and other meaningful add-ons. Once you're a customer, you're part of something that will only get better — a service built to grow alongside the people you love.</p>
       </div>
     </div>
   </div>
@@ -771,21 +767,19 @@
     const dates     = document.getElementById('dates').value || '';
     const notes     = document.getElementById('notes').value || '';
 
-    // Populate hidden fields
-    document.getElementById('h-first').value   = firstName;
-    document.getElementById('h-last').value    = lastName;
-    document.getElementById('h-email').value   = email;
-    document.getElementById('h-address').value = address1 + ' ' + address2;
+    document.getElementById('h-first').value       = firstName;
+    document.getElementById('h-last').value        = lastName;
+    document.getElementById('h-email').value       = email;
+    document.getElementById('h-address').value     = address1 + ' ' + address2;
     document.getElementById('h-rec-name').value    = recFirst + ' ' + recLast;
     document.getElementById('h-rec-address').value = recAddr1 + ' ' + recAddr2;
-    document.getElementById('h-occasion').value = occasion;
-    document.getElementById('h-dates').value   = dates;
-    document.getElementById('h-cards').value   = selectedCards ? selectedCards + ' cards' : 'Not selected';
-    document.getElementById('h-price').value   = selectedPrice || 'Not selected';
-    document.getElementById('h-notes').value   = notes;
-    document.getElementById('h-subject').value = 'New FEN Order — ' + firstName + ' ' + lastName;
+    document.getElementById('h-occasion').value    = occasion;
+    document.getElementById('h-dates').value       = dates;
+    document.getElementById('h-cards').value       = selectedCards ? selectedCards + ' cards' : 'Not selected';
+    document.getElementById('h-price').value       = selectedPrice || 'Not selected';
+    document.getElementById('h-notes').value       = notes;
+    document.getElementById('h-subject').value     = 'New FEN Order — ' + firstName + ' ' + lastName;
 
-    // Submit the real form to Formspree
     const form = document.getElementById('order-form');
     const data = new FormData(form);
 
@@ -793,8 +787,7 @@
       method: 'POST',
       body: data,
       headers: { 'Accept': 'application/json' }
-    }).then(res => {
-      // Show success regardless — avoids redirect
+    }).then(() => {
       showSuccess(firstName, lastName, email, recFirst, recLast, occasion, dates);
     }).catch(() => {
       showSuccess(firstName, lastName, email, recFirst, recLast, occasion, dates);
