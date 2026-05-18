@@ -111,19 +111,58 @@
     .form-header span{color:var(--white);font-weight:600;font-size:15px;}
     .form-body{padding:2rem;}
     .form-note{background:var(--red-light);border-radius:6px;padding:1rem 1.25rem;font-size:14px;color:var(--red-dark);line-height:1.65;margin-bottom:1.25rem;}
-    .form-steps{display:flex;flex-direction:column;gap:.75rem;margin-bottom:1.5rem;}
-    .form-step-item{display:flex;align-items:flex-start;gap:.75rem;font-size:14px;color:var(--gray);}
-    .form-step-item .n{min-width:22px;height:22px;border-radius:50%;background:var(--red);color:var(--white);font-size:12px;font-weight:600;display:flex;align-items:center;justify-content:center;}
-    .form-link-btn{display:inline-flex;align-items:center;gap:.5rem;background:var(--red);color:var(--white);font-weight:600;font-size:13px;padding:12px 22px;border-radius:5px;text-decoration:none;border:none;cursor:pointer;letter-spacing:.5px;text-transform:uppercase;transition:background .2s;margin-top:1.25rem;}
-    .form-link-btn:hover{background:var(--red-dark);}
 
-    /* FORM EMBED */
-    .form-embed-wrapper{border:1px solid var(--border);border-radius:6px;overflow:hidden;margin-bottom:1.25rem;}
-    .form-embed-header{background:var(--off-white);border-bottom:1px solid var(--border);padding:1rem 1.25rem;display:flex;align-items:center;gap:1rem;}
-    .form-embed-icon{width:40px;height:40px;background:var(--red-light);border-radius:6px;display:flex;align-items:center;justify-content:center;}
-    .form-embed-icon i{color:var(--red);font-size:20px;}
-    .form-embed-title{font-size:15px;font-weight:600;color:var(--dark);}
-    .form-embed-sub{font-size:12px;color:var(--gray);margin-top:2px;letter-spacing:.3px;}
+    /* CUSTOM ORDER FORM */
+    .progress-bar{display:flex;align-items:center;gap:0;margin-bottom:2.5rem;}
+    .prog-step{display:flex;flex-direction:column;align-items:center;flex:1;position:relative;}
+    .prog-step:not(:last-child)::after{content:'';position:absolute;top:16px;left:50%;width:100%;height:2px;background:var(--border);z-index:0;}
+    .prog-step.active:not(:last-child)::after,.prog-step.done:not(:last-child)::after{background:var(--red);}
+    .prog-dot{width:32px;height:32px;border-radius:50%;border:2px solid var(--border);background:var(--white);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:600;color:var(--gray);z-index:1;position:relative;transition:all .25s;}
+    .prog-step.active .prog-dot{border-color:var(--red);background:var(--red);color:var(--white);}
+    .prog-step.done .prog-dot{border-color:var(--red);background:var(--red);color:var(--white);}
+    .prog-label{font-size:11px;color:var(--gray);margin-top:.4rem;letter-spacing:.5px;text-transform:uppercase;text-align:center;}
+    .prog-step.active .prog-label{color:var(--red);font-weight:600;}
+    .form-page{display:none;}
+    .form-page.active{display:block;}
+    .page-header{margin-bottom:2rem;}
+    .page-header h2{font-family:'Playfair Display',serif;font-size:24px;color:var(--dark);margin-bottom:.35rem;}
+    .page-header p{font-size:14px;color:var(--gray);line-height:1.6;}
+    .field-group{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1.25rem;}
+    .field-group.single{grid-template-columns:1fr;}
+    .field{display:flex;flex-direction:column;gap:.4rem;}
+    .field label{font-size:12px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--dark);}
+    .field label span{color:var(--red);}
+    .field input,.field textarea,.field select{background:var(--off-white);border:1px solid var(--border);border-radius:6px;padding:.75rem 1rem;font-family:'DM Sans',sans-serif;font-size:15px;color:var(--dark);transition:border-color .2s;width:100%;}
+    .field input:focus,.field textarea:focus,.field select:focus{outline:none;border-color:var(--red);background:var(--white);}
+    .field textarea{resize:vertical;min-height:90px;}
+    .field input.stacked{margin-top:.6rem;}
+    .card-options{display:grid;grid-template-columns:repeat(3,1fr);gap:.75rem;margin-bottom:1.25rem;}
+    .card-option{border:2px solid var(--border);border-radius:8px;padding:1.25rem 1rem;text-align:center;cursor:pointer;transition:all .2s;background:var(--off-white);}
+    .card-option:hover{border-color:var(--red);}
+    .card-option.selected{border-color:var(--red);background:var(--red-light);}
+    .card-option .num{font-family:'Playfair Display',serif;font-size:36px;color:var(--red);line-height:1;}
+    .card-option .lbl{font-size:12px;color:var(--gray);text-transform:uppercase;letter-spacing:.5px;margin-top:.25rem;}
+    .card-option .price{font-size:13px;font-weight:600;color:var(--dark);margin-top:.4rem;}
+    .form-actions{display:flex;justify-content:space-between;align-items:center;margin-top:2rem;padding-top:1.5rem;border-top:1px solid var(--border);}
+    .btn-back{background:transparent;border:1px solid var(--border);color:var(--gray);font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;padding:12px 24px;border-radius:5px;cursor:pointer;letter-spacing:.5px;text-transform:uppercase;transition:all .2s;}
+    .btn-back:hover{border-color:var(--gray);}
+    .btn-next{background:var(--red);border:none;color:var(--white);font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;padding:12px 28px;border-radius:5px;cursor:pointer;letter-spacing:.5px;text-transform:uppercase;transition:background .2s;display:inline-flex;align-items:center;gap:.5rem;}
+    .btn-next:hover{background:var(--red-dark);}
+    .step-count{font-size:13px;color:var(--gray);}
+    .field-note{font-size:12px;color:var(--gray);margin-top:.25rem;line-height:1.5;}
+    .success-screen{display:none;text-align:center;padding:3rem 2rem;}
+    .success-screen.active{display:block;}
+    .success-icon{width:64px;height:64px;background:var(--red-light);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 1.5rem;}
+    .success-icon i{font-size:30px;color:var(--red);}
+    .success-screen h2{font-family:'Playfair Display',serif;font-size:28px;color:var(--dark);margin-bottom:.75rem;}
+    .success-screen p{font-size:15px;color:var(--gray);line-height:1.7;max-width:420px;margin:0 auto 1.5rem;}
+    .summary-box{background:var(--off-white);border:1px solid var(--border);border-radius:8px;padding:1.25rem 1.5rem;text-align:left;margin:1.5rem 0;}
+    .summary-row{display:flex;justify-content:space-between;font-size:14px;padding:.35rem 0;border-bottom:1px solid var(--border);}
+    .summary-row:last-child{border-bottom:none;font-weight:600;padding-top:.6rem;}
+    .summary-row .k{color:var(--gray);}
+    .summary-row .v{color:var(--dark);font-weight:500;}
+    .venmo-cta{display:inline-flex;align-items:center;gap:.5rem;background:#008CFF;color:var(--white);font-weight:600;font-size:13px;padding:13px 28px;border-radius:5px;text-decoration:none;letter-spacing:.5px;text-transform:uppercase;transition:background .2s;}
+    .venmo-cta:hover{background:#006ecc;}
 
     /* CHECKLIST */
     #checklist{padding:4.5rem 2.5rem;background:var(--off-white);}
@@ -191,7 +230,7 @@
     .footer-links a:hover{color:var(--red);}
 
     @media(max-width:768px){
-      #home,.about-grid,.steps-row,.pricing-grid,.checklist-grid,.payment-grid,.contact-grid,.form-row{grid-template-columns:1fr;}
+      #home,.about-grid,.steps-row,.pricing-grid,.checklist-grid,.payment-grid,.contact-grid,.form-row,.field-group,.card-options{grid-template-columns:1fr;}
       .hero-card{display:none;}
       nav{padding:0 1.25rem;}
       .nav-links{display:none;}
@@ -342,28 +381,169 @@
       <div class="form-note">
         <strong>Before you fill out the form:</strong> Review the Customer Checklist below to make sure you have all your recipient names, dates, and addresses ready.
       </div>
-      <div class="form-steps">
-        <div class="form-step-item"><div class="n">1</div><span>Fill out the form with your info, recipient details, and number of cards needed.</span></div>
-        <div class="form-step-item"><div class="n">2</div><span>We review your order and ship your blank card box within 1–2 business days.</span></div>
-        <div class="form-step-item"><div class="n">3</div><span>Fill out your cards, label them in order, and mail them back to us.</span></div>
-        <div class="form-step-item"><div class="n">4</div><span>We store and send each card on the right date, every year — automatically.</span></div>
+
+      <!-- PROGRESS BAR -->
+      <div class="progress-bar">
+        <div class="prog-step active" id="prog-1">
+          <div class="prog-dot">1</div>
+          <span class="prog-label">Your Info</span>
+        </div>
+        <div class="prog-step" id="prog-2">
+          <div class="prog-dot">2</div>
+          <span class="prog-label">Recipient</span>
+        </div>
+        <div class="prog-step" id="prog-3">
+          <div class="prog-dot">3</div>
+          <span class="prog-label">Order Details</span>
+        </div>
       </div>
-      <div class="form-embed-wrapper">
-        <div class="form-embed-header">
-          <div class="form-embed-icon">
-            <i class="ti ti-writing"></i>
+
+      <!-- PAGE 1: YOUR INFORMATION -->
+      <div class="form-page active" id="page-1">
+        <div class="page-header">
+          <h2>Your Information</h2>
+          <p>Please fill out the following questions. After completion, our team will reach out with a confirmation email and next steps.</p>
+        </div>
+        <div class="field-group">
+          <div class="field">
+            <label>First Name <span>*</span></label>
+            <input type="text" id="first-name" placeholder="Jane">
           </div>
-          <div>
-            <p class="form-embed-title">Customer Order Form</p>
-            <p class="form-embed-sub">Forget 'Em Not · Secure & Confidential</p>
+          <div class="field">
+            <label>Last Name <span>*</span></label>
+            <input type="text" id="last-name" placeholder="Smith">
           </div>
         </div>
-        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdftCLDASnuePzb-YUyEWHJi-qVpe0iOZOWZ4FqplTs2mgf9g/viewform?usp=preview" width="100%" height="600" frameborder="0" style="display:block;border:none;border-radius:0 0 6px 6px;"></iframe>
+        <div class="field-group single">
+          <div class="field">
+            <label>Email Address <span>*</span></label>
+            <input type="email" id="email" placeholder="jane@example.com">
+          </div>
+        </div>
+        <div class="field-group single">
+          <div class="field">
+            <label>Mailing Address <span>*</span></label>
+            <input type="text" id="address-1" placeholder="Street address">
+            <input type="text" id="address-2" placeholder="City, State, ZIP" class="stacked">
+          </div>
+        </div>
+        <div class="form-actions">
+          <span class="step-count">Step 1 of 3</span>
+          <button class="btn-next" onclick="goTo(2)">Next <i class="ti ti-arrow-right" aria-hidden="true"></i></button>
+        </div>
       </div>
-      <a href="https://docs.google.com/forms/d/e/1FAIpQLSdftCLDASnuePzb-YUyEWHJi-qVpe0iOZOWZ4FqplTs2mgf9g/viewform?usp=preview" target="_blank" class="form-link-btn">
-        <i class="ti ti-external-link"></i>
-        Open Order Form
-      </a>
+
+      <!-- PAGE 2: RECIPIENT INFORMATION -->
+      <div class="form-page" id="page-2">
+        <div class="page-header">
+          <h2>Recipient Information</h2>
+          <p>Information of whom and where you want the cards to be sent.</p>
+        </div>
+        <div class="field-group">
+          <div class="field">
+            <label>Recipient's First Name <span>*</span></label>
+            <input type="text" id="rec-first" placeholder="John">
+          </div>
+          <div class="field">
+            <label>Recipient's Last Name <span>*</span></label>
+            <input type="text" id="rec-last" placeholder="Doe">
+          </div>
+        </div>
+        <div class="field-group single">
+          <div class="field">
+            <label>Recipient's Mailing Address <span>*</span></label>
+            <input type="text" id="rec-address-1" placeholder="Street address">
+            <input type="text" id="rec-address-2" placeholder="City, State, ZIP" class="stacked">
+          </div>
+        </div>
+        <p class="field-note" style="margin-bottom:1.25rem;">Need to send cards to multiple recipients? You can submit an additional order form for each person.</p>
+        <div class="form-actions">
+          <button class="btn-back" onclick="goTo(1)"><i class="ti ti-arrow-left" aria-hidden="true"></i> Back</button>
+          <div style="display:flex;align-items:center;gap:1rem;">
+            <span class="step-count">Step 2 of 3</span>
+            <button class="btn-next" onclick="goTo(3)">Next <i class="ti ti-arrow-right" aria-hidden="true"></i></button>
+          </div>
+        </div>
+      </div>
+
+      <!-- PAGE 3: ORDER SPECIFICS -->
+      <div class="form-page" id="page-3">
+        <div class="page-header">
+          <h2>Order Specifics</h2>
+          <p>Tell us about the occasion and how many cards you'd like.</p>
+        </div>
+        <div class="field-group single">
+          <div class="field">
+            <label>Occasion <span>*</span></label>
+            <select id="occasion">
+              <option value="">Select an occasion...</option>
+              <option>Birthday</option>
+              <option>Anniversary</option>
+              <option>Holiday</option>
+              <option>Valentine's Day</option>
+              <option>Mother's Day</option>
+              <option>Father's Day</option>
+              <option>Other</option>
+            </select>
+          </div>
+        </div>
+        <div class="field-group single">
+          <div class="field">
+            <label>Date(s) you want cards to arrive annually <span>*</span></label>
+            <input type="text" id="dates" placeholder="e.g. March 15, December 25">
+            <span class="field-note">If multiple dates, list them separated by commas.</span>
+          </div>
+        </div>
+        <div class="field-group single">
+          <div class="field">
+            <label>Number of Cards <span>*</span></label>
+          </div>
+        </div>
+        <div class="card-options">
+          <div class="card-option" onclick="selectCards(5, this)">
+            <div class="num">5</div>
+            <div class="lbl">Cards / Year</div>
+            <div class="price">$79</div>
+          </div>
+          <div class="card-option" onclick="selectCards(10, this)">
+            <div class="num">10</div>
+            <div class="lbl">Cards / Year</div>
+            <div class="price">$129</div>
+          </div>
+          <div class="card-option" onclick="selectCards(15, this)">
+            <div class="num">15</div>
+            <div class="lbl">Cards / Year</div>
+            <div class="price">$169</div>
+          </div>
+        </div>
+        <div class="field-group single">
+          <div class="field">
+            <label>Additional Notes</label>
+            <textarea id="notes" placeholder="Anything else we should know about your order..."></textarea>
+          </div>
+        </div>
+        <div class="form-actions">
+          <button class="btn-back" onclick="goTo(2)"><i class="ti ti-arrow-left" aria-hidden="true"></i> Back</button>
+          <div style="display:flex;align-items:center;gap:1rem;">
+            <span class="step-count">Step 3 of 3</span>
+            <button class="btn-next" onclick="submitOrder()">Submit Order <i class="ti ti-check" aria-hidden="true"></i></button>
+          </div>
+        </div>
+      </div>
+
+      <!-- SUCCESS SCREEN -->
+      <div class="success-screen" id="success">
+        <div class="success-icon"><i class="ti ti-heart" aria-hidden="true"></i></div>
+        <h2>Order Submitted!</h2>
+        <p>Thank you for your order. We'll review your details and reach out within 1–2 business days with a confirmation and payment request via Venmo.</p>
+        <div class="summary-box" id="summary"></div>
+        <p style="font-size:13px;color:var(--gray);margin-bottom:1rem;">Once you hear from us, complete your payment on Venmo to confirm your order.</p>
+        <a href="https://venmo.com/Jacob-loveall-1" target="_blank" class="venmo-cta">
+          <i class="ti ti-external-link" aria-hidden="true"></i>
+          Pay on Venmo @Jacob-loveall-1
+        </a>
+      </div>
+
     </div>
   </div>
 </section>
@@ -528,8 +708,93 @@
 </footer>
 
 <script>
+  let selectedCards = null;
+  let selectedPrice = null;
+
   function toggle(el) {
     el.classList.toggle('done');
+  }
+
+  function selectCards(num, el) {
+    selectedCards = num;
+    const prices = {5:'$79', 10:'$129', 15:'$169'};
+    selectedPrice = prices[num];
+    document.querySelectorAll('.card-option').forEach(o => o.classList.remove('selected'));
+    el.classList.add('selected');
+  }
+
+  function goTo(page) {
+    document.querySelectorAll('.form-page').forEach(p => p.classList.remove('active'));
+    document.getElementById('page-' + page).classList.add('active');
+    for (let i = 1; i <= 3; i++) {
+      const s = document.getElementById('prog-' + i);
+      s.classList.remove('active', 'done');
+      if (i < page) s.classList.add('done');
+      if (i === page) s.classList.add('active');
+      const dot = s.querySelector('.prog-dot');
+      if (i < page) dot.innerHTML = '<i class="ti ti-check" style="font-size:14px;" aria-hidden="true"></i>';
+      else dot.textContent = i;
+    }
+  }
+
+  async function submitOrder() {
+    const firstName  = document.getElementById('first-name').value || '';
+    const lastName   = document.getElementById('last-name').value || '';
+    const email      = document.getElementById('email').value || '';
+    const address1   = document.getElementById('address-1').value || '';
+    const address2   = document.getElementById('address-2').value || '';
+    const recFirst   = document.getElementById('rec-first').value || '';
+    const recLast    = document.getElementById('rec-last').value || '';
+    const recAddr1   = document.getElementById('rec-address-1').value || '';
+    const recAddr2   = document.getElementById('rec-address-2').value || '';
+    const occasion   = document.getElementById('occasion').value || '';
+    const dates      = document.getElementById('dates').value || '';
+    const notes      = document.getElementById('notes').value || '';
+
+    const payload = {
+      customer_first_name: firstName,
+      customer_last_name: lastName,
+      customer_email: email,
+      customer_address: address1 + ' ' + address2,
+      recipient_first_name: recFirst,
+      recipient_last_name: recLast,
+      recipient_address: recAddr1 + ' ' + recAddr2,
+      occasion: occasion,
+      send_dates: dates,
+      number_of_cards: selectedCards ? selectedCards + ' cards' : 'Not selected',
+      total_price: selectedPrice || 'Not selected',
+      additional_notes: notes,
+      _replyto: email,
+      _subject: 'New FEN Order — ' + firstName + ' ' + lastName
+    };
+
+    try {
+      await fetch('https://formspree.io/f/xwvzedlo', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json', 'Accept': 'application/json'},
+        body: JSON.stringify(payload)
+      });
+    } catch(e) {
+      console.error('Submission error:', e);
+    }
+
+    document.querySelectorAll('.form-page').forEach(p => p.classList.remove('active'));
+    document.getElementById('success').classList.add('active');
+    document.querySelectorAll('.prog-step').forEach(s => {
+      s.classList.remove('active');
+      s.classList.add('done');
+      s.querySelector('.prog-dot').innerHTML = '<i class="ti ti-check" style="font-size:14px;" aria-hidden="true"></i>';
+    });
+
+    document.getElementById('summary').innerHTML = `
+      <div class="summary-row"><span class="k">Customer</span><span class="v">${firstName} ${lastName}</span></div>
+      <div class="summary-row"><span class="k">Email</span><span class="v">${email}</span></div>
+      <div class="summary-row"><span class="k">Recipient</span><span class="v">${recFirst} ${recLast}</span></div>
+      <div class="summary-row"><span class="k">Occasion</span><span class="v">${occasion || '—'}</span></div>
+      <div class="summary-row"><span class="k">Send Date(s)</span><span class="v">${dates || '—'}</span></div>
+      <div class="summary-row"><span class="k">Cards</span><span class="v">${selectedCards ? selectedCards + ' cards/year' : '—'}</span></div>
+      <div class="summary-row"><span class="k">Total Due</span><span class="v">${selectedPrice || '—'}</span></div>
+    `;
   }
 </script>
 
