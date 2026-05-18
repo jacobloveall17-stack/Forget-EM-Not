@@ -398,140 +398,160 @@
         </div>
       </div>
 
-      <!-- PAGE 1: YOUR INFORMATION -->
-      <div class="form-page active" id="page-1">
-        <div class="page-header">
-          <h2>Your Information</h2>
-          <p>Please fill out the following questions. After completion, our team will reach out with a confirmation email and next steps.</p>
-        </div>
-        <div class="field-group">
-          <div class="field">
-            <label>First Name <span>*</span></label>
-            <input type="text" id="first-name" placeholder="Jane">
-          </div>
-          <div class="field">
-            <label>Last Name <span>*</span></label>
-            <input type="text" id="last-name" placeholder="Smith">
-          </div>
-        </div>
-        <div class="field-group single">
-          <div class="field">
-            <label>Email Address <span>*</span></label>
-            <input type="email" id="email" placeholder="jane@example.com">
-          </div>
-        </div>
-        <div class="field-group single">
-          <div class="field">
-            <label>Mailing Address <span>*</span></label>
-            <input type="text" id="address-1" placeholder="Street address">
-            <input type="text" id="address-2" placeholder="City, State, ZIP" class="stacked">
-          </div>
-        </div>
-        <div class="form-actions">
-          <span class="step-count">Step 1 of 3</span>
-          <button class="btn-next" onclick="goTo(2)">Next <i class="ti ti-arrow-right" aria-hidden="true"></i></button>
-        </div>
-      </div>
+      <!-- THE REAL FORM WRAPS ALL THREE PAGES -->
+      <form id="order-form" action="https://formspree.io/f/mjgzvndg" method="POST">
 
-      <!-- PAGE 2: RECIPIENT INFORMATION -->
-      <div class="form-page" id="page-2">
-        <div class="page-header">
-          <h2>Recipient Information</h2>
-          <p>Information of whom and where you want the cards to be sent.</p>
-        </div>
-        <div class="field-group">
-          <div class="field">
-            <label>Recipient's First Name <span>*</span></label>
-            <input type="text" id="rec-first" placeholder="John">
-          </div>
-          <div class="field">
-            <label>Recipient's Last Name <span>*</span></label>
-            <input type="text" id="rec-last" placeholder="Doe">
-          </div>
-        </div>
-        <div class="field-group single">
-          <div class="field">
-            <label>Recipient's Mailing Address <span>*</span></label>
-            <input type="text" id="rec-address-1" placeholder="Street address">
-            <input type="text" id="rec-address-2" placeholder="City, State, ZIP" class="stacked">
-          </div>
-        </div>
-        <p class="field-note" style="margin-bottom:1.25rem;">Need to send cards to multiple recipients? You can submit an additional order form for each person.</p>
-        <div class="form-actions">
-          <button class="btn-back" onclick="goTo(1)"><i class="ti ti-arrow-left" aria-hidden="true"></i> Back</button>
-          <div style="display:flex;align-items:center;gap:1rem;">
-            <span class="step-count">Step 2 of 3</span>
-            <button class="btn-next" onclick="goTo(3)">Next <i class="ti ti-arrow-right" aria-hidden="true"></i></button>
-          </div>
-        </div>
-      </div>
+        <!-- Hidden fields populated by JS before submit -->
+        <input type="hidden" name="customer_first_name" id="h-first">
+        <input type="hidden" name="customer_last_name" id="h-last">
+        <input type="hidden" name="customer_email" id="h-email">
+        <input type="hidden" name="customer_address" id="h-address">
+        <input type="hidden" name="recipient_name" id="h-rec-name">
+        <input type="hidden" name="recipient_address" id="h-rec-address">
+        <input type="hidden" name="occasion" id="h-occasion">
+        <input type="hidden" name="send_dates" id="h-dates">
+        <input type="hidden" name="number_of_cards" id="h-cards">
+        <input type="hidden" name="total_price" id="h-price">
+        <input type="hidden" name="additional_notes" id="h-notes">
+        <input type="hidden" name="_subject" id="h-subject" value="New FEN Order">
 
-      <!-- PAGE 3: ORDER SPECIFICS -->
-      <div class="form-page" id="page-3">
-        <div class="page-header">
-          <h2>Order Specifics</h2>
-          <p>Tell us about the occasion and how many cards you'd like.</p>
-        </div>
-        <div class="field-group single">
-          <div class="field">
-            <label>Occasion <span>*</span></label>
-            <select id="occasion">
-              <option value="">Select an occasion...</option>
-              <option>Birthday</option>
-              <option>Anniversary</option>
-              <option>Holiday</option>
-              <option>Valentine's Day</option>
-              <option>Mother's Day</option>
-              <option>Father's Day</option>
-              <option>Other</option>
-            </select>
+        <!-- PAGE 1: YOUR INFORMATION -->
+        <div class="form-page active" id="page-1">
+          <div class="page-header">
+            <h2>Your Information</h2>
+            <p>Please fill out the following questions. After completion, our team will reach out with a confirmation email and next steps.</p>
+          </div>
+          <div class="field-group">
+            <div class="field">
+              <label>First Name <span>*</span></label>
+              <input type="text" id="first-name" placeholder="Jane">
+            </div>
+            <div class="field">
+              <label>Last Name <span>*</span></label>
+              <input type="text" id="last-name" placeholder="Smith">
+            </div>
+          </div>
+          <div class="field-group single">
+            <div class="field">
+              <label>Email Address <span>*</span></label>
+              <input type="email" id="email" placeholder="jane@example.com">
+            </div>
+          </div>
+          <div class="field-group single">
+            <div class="field">
+              <label>Mailing Address <span>*</span></label>
+              <input type="text" id="address-1" placeholder="Street address">
+              <input type="text" id="address-2" placeholder="City, State, ZIP" class="stacked">
+            </div>
+          </div>
+          <div class="form-actions">
+            <span class="step-count">Step 1 of 3</span>
+            <button type="button" class="btn-next" onclick="goTo(2)">Next <i class="ti ti-arrow-right" aria-hidden="true"></i></button>
           </div>
         </div>
-        <div class="field-group single">
-          <div class="field">
-            <label>Date(s) you want cards to arrive annually <span>*</span></label>
-            <input type="text" id="dates" placeholder="e.g. March 15, December 25">
-            <span class="field-note">If multiple dates, list them separated by commas.</span>
-          </div>
-        </div>
-        <div class="field-group single">
-          <div class="field">
-            <label>Number of Cards <span>*</span></label>
-          </div>
-        </div>
-        <div class="card-options">
-          <div class="card-option" onclick="selectCards(5, this)">
-            <div class="num">5</div>
-            <div class="lbl">Cards / Year</div>
-            <div class="price">$79</div>
-          </div>
-          <div class="card-option" onclick="selectCards(10, this)">
-            <div class="num">10</div>
-            <div class="lbl">Cards / Year</div>
-            <div class="price">$129</div>
-          </div>
-          <div class="card-option" onclick="selectCards(15, this)">
-            <div class="num">15</div>
-            <div class="lbl">Cards / Year</div>
-            <div class="price">$169</div>
-          </div>
-        </div>
-        <div class="field-group single">
-          <div class="field">
-            <label>Additional Notes</label>
-            <textarea id="notes" placeholder="Anything else we should know about your order..."></textarea>
-          </div>
-        </div>
-        <div class="form-actions">
-          <button class="btn-back" onclick="goTo(2)"><i class="ti ti-arrow-left" aria-hidden="true"></i> Back</button>
-          <div style="display:flex;align-items:center;gap:1rem;">
-            <span class="step-count">Step 3 of 3</span>
-            <button class="btn-next" onclick="submitOrder()">Submit Order <i class="ti ti-check" aria-hidden="true"></i></button>
-          </div>
-        </div>
-      </div>
 
-      <!-- SUCCESS SCREEN -->
+        <!-- PAGE 2: RECIPIENT INFORMATION -->
+        <div class="form-page" id="page-2">
+          <div class="page-header">
+            <h2>Recipient Information</h2>
+            <p>Information of whom and where you want the cards to be sent.</p>
+          </div>
+          <div class="field-group">
+            <div class="field">
+              <label>Recipient's First Name <span>*</span></label>
+              <input type="text" id="rec-first" placeholder="John">
+            </div>
+            <div class="field">
+              <label>Recipient's Last Name <span>*</span></label>
+              <input type="text" id="rec-last" placeholder="Doe">
+            </div>
+          </div>
+          <div class="field-group single">
+            <div class="field">
+              <label>Recipient's Mailing Address <span>*</span></label>
+              <input type="text" id="rec-address-1" placeholder="Street address">
+              <input type="text" id="rec-address-2" placeholder="City, State, ZIP" class="stacked">
+            </div>
+          </div>
+          <p class="field-note" style="margin-bottom:1.25rem;">Need to send cards to multiple recipients? You can submit an additional order form for each person.</p>
+          <div class="form-actions">
+            <button type="button" class="btn-back" onclick="goTo(1)"><i class="ti ti-arrow-left" aria-hidden="true"></i> Back</button>
+            <div style="display:flex;align-items:center;gap:1rem;">
+              <span class="step-count">Step 2 of 3</span>
+              <button type="button" class="btn-next" onclick="goTo(3)">Next <i class="ti ti-arrow-right" aria-hidden="true"></i></button>
+            </div>
+          </div>
+        </div>
+
+        <!-- PAGE 3: ORDER SPECIFICS -->
+        <div class="form-page" id="page-3">
+          <div class="page-header">
+            <h2>Order Specifics</h2>
+            <p>Tell us about the occasion and how many cards you'd like.</p>
+          </div>
+          <div class="field-group single">
+            <div class="field">
+              <label>Occasion <span>*</span></label>
+              <select id="occasion">
+                <option value="">Select an occasion...</option>
+                <option>Birthday</option>
+                <option>Anniversary</option>
+                <option>Holiday</option>
+                <option>Valentine's Day</option>
+                <option>Mother's Day</option>
+                <option>Father's Day</option>
+                <option>Other</option>
+              </select>
+            </div>
+          </div>
+          <div class="field-group single">
+            <div class="field">
+              <label>Date(s) you want cards to arrive annually <span>*</span></label>
+              <input type="text" id="dates" placeholder="e.g. March 15, December 25">
+              <span class="field-note">If multiple dates, list them separated by commas.</span>
+            </div>
+          </div>
+          <div class="field-group single">
+            <div class="field">
+              <label>Number of Cards <span>*</span></label>
+            </div>
+          </div>
+          <div class="card-options">
+            <div class="card-option" onclick="selectCards(5, this)">
+              <div class="num">5</div>
+              <div class="lbl">Cards / Year</div>
+              <div class="price">$79</div>
+            </div>
+            <div class="card-option" onclick="selectCards(10, this)">
+              <div class="num">10</div>
+              <div class="lbl">Cards / Year</div>
+              <div class="price">$129</div>
+            </div>
+            <div class="card-option" onclick="selectCards(15, this)">
+              <div class="num">15</div>
+              <div class="lbl">Cards / Year</div>
+              <div class="price">$169</div>
+            </div>
+          </div>
+          <div class="field-group single">
+            <div class="field">
+              <label>Additional Notes</label>
+              <textarea id="notes" placeholder="Anything else we should know about your order..."></textarea>
+            </div>
+          </div>
+          <div class="form-actions">
+            <button type="button" class="btn-back" onclick="goTo(2)"><i class="ti ti-arrow-left" aria-hidden="true"></i> Back</button>
+            <div style="display:flex;align-items:center;gap:1rem;">
+              <span class="step-count">Step 3 of 3</span>
+              <button type="button" class="btn-next" onclick="submitOrder()">Submit Order <i class="ti ti-check" aria-hidden="true"></i></button>
+            </div>
+          </div>
+        </div>
+
+      </form>
+      <!-- END FORM -->
+
+      <!-- SUCCESS SCREEN (outside the form) -->
       <div class="success-screen" id="success">
         <div class="success-icon"><i class="ti ti-heart" aria-hidden="true"></i></div>
         <h2>Order Submitted!</h2>
@@ -737,47 +757,51 @@
     }
   }
 
-  async function submitOrder() {
-    const firstName  = document.getElementById('first-name').value || '';
-    const lastName   = document.getElementById('last-name').value || '';
-    const email      = document.getElementById('email').value || '';
-    const address1   = document.getElementById('address-1').value || '';
-    const address2   = document.getElementById('address-2').value || '';
-    const recFirst   = document.getElementById('rec-first').value || '';
-    const recLast    = document.getElementById('rec-last').value || '';
-    const recAddr1   = document.getElementById('rec-address-1').value || '';
-    const recAddr2   = document.getElementById('rec-address-2').value || '';
-    const occasion   = document.getElementById('occasion').value || '';
-    const dates      = document.getElementById('dates').value || '';
-    const notes      = document.getElementById('notes').value || '';
+  function submitOrder() {
+    const firstName = document.getElementById('first-name').value || '';
+    const lastName  = document.getElementById('last-name').value || '';
+    const email     = document.getElementById('email').value || '';
+    const address1  = document.getElementById('address-1').value || '';
+    const address2  = document.getElementById('address-2').value || '';
+    const recFirst  = document.getElementById('rec-first').value || '';
+    const recLast   = document.getElementById('rec-last').value || '';
+    const recAddr1  = document.getElementById('rec-address-1').value || '';
+    const recAddr2  = document.getElementById('rec-address-2').value || '';
+    const occasion  = document.getElementById('occasion').value || '';
+    const dates     = document.getElementById('dates').value || '';
+    const notes     = document.getElementById('notes').value || '';
 
-    const payload = {
-      customer_first_name: firstName,
-      customer_last_name: lastName,
-      customer_email: email,
-      customer_address: address1 + ' ' + address2,
-      recipient_first_name: recFirst,
-      recipient_last_name: recLast,
-      recipient_address: recAddr1 + ' ' + recAddr2,
-      occasion: occasion,
-      send_dates: dates,
-      number_of_cards: selectedCards ? selectedCards + ' cards' : 'Not selected',
-      total_price: selectedPrice || 'Not selected',
-      additional_notes: notes,
-      _replyto: email,
-      _subject: 'New FEN Order — ' + firstName + ' ' + lastName
-    };
+    // Populate hidden fields
+    document.getElementById('h-first').value   = firstName;
+    document.getElementById('h-last').value    = lastName;
+    document.getElementById('h-email').value   = email;
+    document.getElementById('h-address').value = address1 + ' ' + address2;
+    document.getElementById('h-rec-name').value    = recFirst + ' ' + recLast;
+    document.getElementById('h-rec-address').value = recAddr1 + ' ' + recAddr2;
+    document.getElementById('h-occasion').value = occasion;
+    document.getElementById('h-dates').value   = dates;
+    document.getElementById('h-cards').value   = selectedCards ? selectedCards + ' cards' : 'Not selected';
+    document.getElementById('h-price').value   = selectedPrice || 'Not selected';
+    document.getElementById('h-notes').value   = notes;
+    document.getElementById('h-subject').value = 'New FEN Order — ' + firstName + ' ' + lastName;
 
-    try {
-      await fetch('https://formspree.io/f/xwvzedlo', {
-        method: 'POST',
-        headers: {'Content-Type': 'application/json', 'Accept': 'application/json'},
-        body: JSON.stringify(payload)
-      });
-    } catch(e) {
-      console.error('Submission error:', e);
-    }
+    // Submit the real form to Formspree
+    const form = document.getElementById('order-form');
+    const data = new FormData(form);
 
+    fetch('https://formspree.io/f/mjgzvndg', {
+      method: 'POST',
+      body: data,
+      headers: { 'Accept': 'application/json' }
+    }).then(res => {
+      // Show success regardless — avoids redirect
+      showSuccess(firstName, lastName, email, recFirst, recLast, occasion, dates);
+    }).catch(() => {
+      showSuccess(firstName, lastName, email, recFirst, recLast, occasion, dates);
+    });
+  }
+
+  function showSuccess(firstName, lastName, email, recFirst, recLast, occasion, dates) {
     document.querySelectorAll('.form-page').forEach(p => p.classList.remove('active'));
     document.getElementById('success').classList.add('active');
     document.querySelectorAll('.prog-step').forEach(s => {
@@ -785,7 +809,6 @@
       s.classList.add('done');
       s.querySelector('.prog-dot').innerHTML = '<i class="ti ti-check" style="font-size:14px;" aria-hidden="true"></i>';
     });
-
     document.getElementById('summary').innerHTML = `
       <div class="summary-row"><span class="k">Customer</span><span class="v">${firstName} ${lastName}</span></div>
       <div class="summary-row"><span class="k">Email</span><span class="v">${email}</span></div>
